@@ -36,24 +36,35 @@ const Index = () => {
               <Icon name="Shield" className="text-primary" size={32} />
               <h1 className="text-2xl font-bold text-white">Хоккейная Команда</h1>
             </div>
-            <div className="flex space-x-1">
-              {[
-                { id: 'home', label: 'Главная', icon: 'Home' },
-                { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
-                { id: 'roster', label: 'Состав', icon: 'Users' },
-                { id: 'results', label: 'Результаты', icon: 'TrendingUp' },
-                { id: 'stats', label: 'Статистика', icon: 'BarChart3' },
-              ].map((item) => (
-                <Button
-                  key={item.id}
-                  variant={activeSection === item.id ? 'default' : 'ghost'}
-                  className={activeSection === item.id ? 'bg-primary text-white' : 'text-white hover:bg-white/10'}
-                  onClick={() => setActiveSection(item.id)}
-                >
-                  <Icon name={item.icon as any} size={16} className="mr-2" />
-                  {item.label}
-                </Button>
-              ))}
+            <div className="flex items-center space-x-1">
+              <div className="flex space-x-1">
+                {[
+                  { id: 'home', label: 'Главная', icon: 'Home' },
+                  { id: 'schedule', label: 'Расписание', icon: 'Calendar' },
+                  { id: 'roster', label: 'Состав', icon: 'Users' },
+                  { id: 'results', label: 'Результаты', icon: 'TrendingUp' },
+                  { id: 'stats', label: 'Статистика', icon: 'BarChart3' },
+                ].map((item) => (
+                  <Button
+                    key={item.id}
+                    variant={activeSection === item.id ? 'default' : 'ghost'}
+                    className={activeSection === item.id ? 'bg-primary text-white' : 'text-white hover:bg-white/10'}
+                    onClick={() => setActiveSection(item.id)}
+                  >
+                    <Icon name={item.icon as any} size={16} className="mr-2" />
+                    {item.label}
+                  </Button>
+                ))}
+              </div>
+              <Button
+                variant="secondary"
+                size="sm"
+                onClick={() => window.location.href = '/admin'}
+                className="ml-4"
+              >
+                <Icon name="Settings" size={16} className="mr-2" />
+                Админ
+              </Button>
             </div>
           </div>
         </div>
